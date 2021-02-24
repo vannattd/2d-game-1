@@ -1,4 +1,4 @@
-# 2D Game for CIS 350
+# 2D Game for CIS 380
 
 Frogger type game
 
