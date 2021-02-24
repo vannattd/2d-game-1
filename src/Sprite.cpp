@@ -46,6 +46,11 @@ void Sprite::operator++()
   velocity.setZ(velocity.getZ() + 1);
 }
 
+void Sprite::setScene(Scene *scene)
+{
+  this->scene = scene;
+}
+
 Sprite::~Sprite()
 {
   SDL_DestroyTexture(texture);
