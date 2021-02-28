@@ -76,18 +76,3 @@ void Sprite::draw()
   SDL_RenderCopy(Engine::getRenderer(), texture, NULL, dst);
 }
 
-//Update method to update Sprite (i.e movement), This will change for every Sprite though.
-void Sprite::update(double delta)
-{
-  // So we stop getting the compiler warning for now.
-  position.setX(position.getX() + velocity.getX() * delta);
-  position.setY(position.getY() + velocity.getY() * delta);
-  if (position.getX() > 1024 - rect->w || position.getX() < 0)
-  {
-    velocity.setX(-velocity.getX());
-  }
-  if (position.getY() > 768 - rect->h || position.getY() < 0)
-  {
-    velocity.setY(-velocity.getY());
-  }
-}

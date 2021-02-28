@@ -11,7 +11,7 @@ class Frogger : public Sprite
 public:
   Frogger(std::string image);
   Frogger(SDL_Surface *surface);
-  //void update(double delta);
+  void update(double delta);
   // void left(double delta);
   // void right(double delta);
   // void up(double delta);

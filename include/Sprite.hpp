@@ -18,7 +18,6 @@ public:
   void operator++();
   void setScene(Scene *scene);
   ~Sprite();
-  void update(double delta);
   void draw();
 
 private:
