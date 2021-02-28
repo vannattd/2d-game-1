@@ -1,4 +1,4 @@
-build/release/main.o: src/main.cpp include/Engine.hpp \
+build/release/Frogger.o: src/Frogger.cpp include/Engine.hpp \
   include/Interfaces.hpp /usr/local/include/SDL2/SDL.h \
   /usr/local/include/SDL2/SDL_main.h \
   /usr/local/include/SDL2/SDL_stdinc.h \
@@ -46,9 +46,8 @@ build/release/main.o: src/main.cpp include/Engine.hpp \
   /usr/local/include/SDL2/SDL_version.h \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h include/Utility.hpp \
-  include/Scene.hpp include/Banana.hpp \
-  /usr/local/include/SDL2/SDL_image.h include/Frogger.hpp \
-  include/Sprite.hpp include/HUD.hpp /usr/local/include/SDL2/SDL_ttf.h
+  include/Scene.hpp include/Frogger.hpp \
+  /usr/local/include/SDL2/SDL_image.h include/Sprite.hpp
 
 include/Engine.hpp:
 
@@ -154,14 +153,8 @@ include/Utility.hpp:
 
 include/Scene.hpp:
 
-include/Banana.hpp:
+include/Frogger.hpp:
 
 /usr/local/include/SDL2/SDL_image.h:
 
-include/Frogger.hpp:
-
 include/Sprite.hpp:
-
-include/HUD.hpp:
-
-/usr/local/include/SDL2/SDL_ttf.h:

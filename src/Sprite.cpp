@@ -1,9 +1,13 @@
+//@authors Dylan Vannatter, Korey Stamper and Jessica Ricksgers
+//Start of a basic Sprite Class for CIS 380
+
 #include "Engine.hpp"
 #include "Sprite.hpp"
 
+//Sprite Construcotr using a string to a file location
 Sprite::Sprite(std::string image)
 {
-  surface = IMG_Load(image);
+  surface = IMG_Load(image.c_str());
   if (surface == NULL)
   {
     SDL_Log("Unable to load image.");
@@ -24,6 +28,7 @@ Sprite::Sprite(std::string image)
   velocity.setZ(0);
 }
 
+//Sprite Construcotr using an SDL_Surface
 Sprite::Sprite(SDL_Surface *surface)
 {
   texture = SDL_CreateTextureFromSurface(Engine::getRenderer(), surface);
@@ -41,22 +46,37 @@ Sprite::Sprite(SDL_Surface *surface)
   velocity.setZ(0);
 }
 
+//Attempt at a PRE-fix ++ operator for Z position
 void Sprite::operator++()
 {
   velocity.setZ(velocity.getZ() + 1);
 }
 
+//Setting scene provided by Prof
 void Sprite::setScene(Scene *scene)
 {
   this->scene = scene;
 }
 
+//Deconstructor
 Sprite::~Sprite()
 {
   SDL_DestroyTexture(texture);
   SDL_FreeSurface(surface);
 }
 
+//Drawing method to draw Sprite on the screen
+void Sprite::draw()
+{
+  SDL_Rect *dst = new SDL_Rect();
+  dst->x = position.getX();
+  dst->y = position.getY();
+  dst->w = rect->w;
+  dst->h = rect->h;
+  SDL_RenderCopy(Engine::getRenderer(), texture, NULL, dst);
+}
+
+//Update method to update Sprite (i.e movement), This will change for every Sprite though.
 void Sprite::update(double delta)
 {
   // So we stop getting the compiler warning for now.
@@ -70,14 +90,4 @@ void Sprite::update(double delta)
   {
     velocity.setY(-velocity.getY());
   }
-}
-
-void Sprite::draw()
-{
-  SDL_Rect *dst = new SDL_Rect();
-  dst->x = position.getX();
-  dst->y = position.getY();
-  dst->w = rect->w;
-  dst->h = rect->h;
-  SDL_RenderCopy(Engine::getRenderer(), texture, NULL, dst);
 }
