@@ -48,7 +48,8 @@ build/release/main.o: src/main.cpp include/Engine.hpp \
   /usr/local/include/SDL2/SDL_misc.h include/Utility.hpp \
   include/Scene.hpp include/Banana.hpp \
   /usr/local/include/SDL2/SDL_image.h include/Frogger.hpp \
-  include/Sprite.hpp include/HUD.hpp /usr/local/include/SDL2/SDL_ttf.h
+  include/Sprite.hpp include/Snake.hpp include/HUD.hpp \
+  /usr/local/include/SDL2/SDL_ttf.h
 
 include/Engine.hpp:
 
@@ -161,6 +162,8 @@ include/Banana.hpp:
 include/Frogger.hpp:
 
 include/Sprite.hpp:
+
+include/Snake.hpp:
 
 include/HUD.hpp:
 

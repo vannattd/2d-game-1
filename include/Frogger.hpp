@@ -12,10 +12,10 @@ public:
   Frogger(std::string image);
   Frogger(SDL_Surface *surface);
   void update(double delta);
-  // void left(double delta);
-  // void right(double delta);
-  // void up(double delta);
-  // void down(double delta);
+  void left(double delta);
+  void right(double delta);
+  void up(double delta);
+  void down(double delta);
 
 private:
   Vector3 velocity;
