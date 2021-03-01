@@ -5,7 +5,7 @@ Snake::Snake(std::string image) : Sprite(image)
 {
   position.setX(400);
   position.setY(300);
-  direction = 10;
+  direction = -10;
 }
 
 void Snake::update(double delta)
@@ -16,11 +16,16 @@ void Snake::update(double delta)
   if (position.getX() > 1024 - rect->w)
   {
     direction = -10;
+    surface = IMG_Load("./assets/snake.png");
+    texture = SDL_CreateTextureFromSurface(Engine::getRenderer(), surface);
     //position.setX(position.getX() - 10);
   }
   if (position.getX() < 0)
   {
     direction = 10;
+    surface = IMG_Load("./assets/snake-right.png");
+    texture = SDL_CreateTextureFromSurface(Engine::getRenderer(), surface);
+
     //position.setX(position.getX() + 10);
   }
 }
