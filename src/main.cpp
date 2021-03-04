@@ -18,14 +18,24 @@ int main(int argc, char **argv)
 	// Create an engine.  Must happen early, creates the renderer.
 	Engine engine(1024, 768);
 
+	int num_enenmies = 15;
+	int offset = 50;
+	int prev_location = 25;
+
 	// Make a banana and add to scene. Should update and draw.
 	Frogger *f = new Frogger("./assets/frog.png");
-	Snake *s = new Snake("./assets/snake.png");
+
+	for (int i = 0; i <= num_enenmies; i++)
+	{
+		Snake *s = new Snake("./assets/snake.png", 200, prev_location + offset, rand() % 20 + 1);
+		prev_location = prev_location + offset;
+		one.addUpdateable(s);
+		one.addDrawable(s);
+	}
 
 	one.addUpdateable(f);
 	one.addDrawable(f);
-	one.addUpdateable(s);
-	one.addDrawable(s);
+
 	auto f_up = [f](double delta) { f->up(delta); };
 	auto f_down = [f](double delta) { f->down(delta); };
 	auto f_left = [f](double delta) { f->left(delta); };

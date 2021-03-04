@@ -8,6 +8,13 @@ Snake::Snake(std::string image) : Sprite(image)
   direction = -10;
 }
 
+Snake::Snake(std::string image, int x, int y, int speed) : Sprite(image)
+{
+  position.setX(x);
+  position.setY(y);
+  direction = -speed;
+}
+
 void Snake::update(double delta)
 {
   // So we stop getting the compiler warning for now.

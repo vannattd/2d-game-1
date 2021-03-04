@@ -10,6 +10,7 @@ class Snake : public Sprite
 {
 public:
   Snake(std::string image);
+  Snake(std::string image, int x, int y, int speed);
   Snake(SDL_Surface *surface);
   void update(double delta);
 
