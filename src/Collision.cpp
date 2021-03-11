@@ -38,7 +38,6 @@ b2Body *Collision::addObject(Sprite *object)
 
   b2Body *body = world->CreateBody(&bodyDef);
 
-  b2PolygonShape test;
   b2PolygonShape box;
   box.SetAsBox(0.5, 0.5);
 

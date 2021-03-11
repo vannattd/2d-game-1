@@ -35,12 +35,16 @@ int main(int argc, char **argv)
 		prev_location = prev_location + offset;
 		one.addUpdateable(s);
 		one.addDrawable(s);
+		b2Body *body = c.addObject(s);
+		s->setBody(body);
 	}
 
 	b2Body *body = c.addObject(f);
 	f->setBody(body);
 	one.addUpdateable(f);
 	one.addDrawable(f);
+
+	//Problem
 	one.addUpdateable(&c);
 
 	auto f_up = [f](double delta) { f->up(delta); };
