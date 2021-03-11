@@ -2,8 +2,10 @@
 #include "Banana.hpp"
 #include "Frogger.hpp"
 #include "Snake.hpp"
+#include "Collision.hpp"
 #include "HUD.hpp"
 #include <SDL2/SDL.h>
+#include <box2d/box2d.h>
 
 int main(int argc, char **argv)
 {
@@ -18,9 +20,11 @@ int main(int argc, char **argv)
 	// Create an engine.  Must happen early, creates the renderer.
 	Engine engine(1024, 768);
 
-	int num_enenmies = 15;
+	Collision c(b2Vec2(0.0, 0.0));
+
+	int num_enenmies = 10;
 	int offset = 50;
-	int prev_location = 25;
+	int prev_location = 10;
 
 	// Make a banana and add to scene. Should update and draw.
 	Frogger *f = new Frogger("./assets/frog.png");
@@ -33,8 +37,11 @@ int main(int argc, char **argv)
 		one.addDrawable(s);
 	}
 
+	b2Body *body = c.addObject(f);
+	f->setBody(body);
 	one.addUpdateable(f);
 	one.addDrawable(f);
+	one.addUpdateable(&c);
 
 	auto f_up = [f](double delta) { f->up(delta); };
 	auto f_down = [f](double delta) { f->down(delta); };

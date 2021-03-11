@@ -22,23 +22,40 @@ void Frogger::update(double delta)
   }
 }
 
+void Frogger::setBody(b2Body *body)
+{
+  this->body = body;
+}
+
 void Frogger::left(double delta)
 {
-
-  position.setX(position.getX() - 10);
+  b2Vec2 force(-1.0, 1.0);
+  body->ApplyLinearImpulseToCenter(force, true);
+  //position.setX(position.getX() - 10);
+  surface = IMG_Load("./assets/frog_left.png");
+  texture = SDL_CreateTextureFromSurface(Engine::getRenderer(), surface);
 }
 void Frogger::right(double delta)
 {
-
-  position.setX(position.getX() + 10);
+  b2Vec2 force(1.0, 0.0);
+  body->ApplyLinearImpulseToCenter(force, true);
+  //position.setX(position.getX() + 10);
+  surface = IMG_Load("./assets/frog_right.png");
+  texture = SDL_CreateTextureFromSurface(Engine::getRenderer(), surface);
 }
 void Frogger::up(double delta)
 {
-
-  position.setY(position.getY() - 10);
+  b2Vec2 force(0.0, -1.0);
+  body->ApplyLinearImpulseToCenter(force, true);
+  //position.setY(position.getY() - 10);
+  surface = IMG_Load("./assets/frog.png");
+  texture = SDL_CreateTextureFromSurface(Engine::getRenderer(), surface);
 }
 void Frogger::down(double delta)
 {
-
-  position.setY(position.getY() + 10);
+  b2Vec2 force(0.0, 1.0);
+  body->ApplyLinearImpulseToCenter(force, true);
+  //position.setY(position.getY() + 10);
+  surface = IMG_Load("./assets/frog_down.png");
+  texture = SDL_CreateTextureFromSurface(Engine::getRenderer(), surface);
 }

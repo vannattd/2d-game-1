@@ -1,5 +1,7 @@
 #include "Engine.hpp"
+#include "Sprite.hpp"
 #include "Snake.hpp"
+#include <string>
 
 Snake::Snake(std::string image) : Sprite(image)
 {
@@ -13,6 +15,11 @@ Snake::Snake(std::string image, int x, int y, int speed) : Sprite(image)
   position.setX(x);
   position.setY(y);
   direction = -speed;
+}
+
+void Snake::setBody(b2Body *body)
+{
+  this->body = body;
 }
 
 void Snake::update(double delta)

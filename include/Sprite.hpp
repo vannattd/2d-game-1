@@ -23,6 +23,8 @@ public:
 private:
   Vector3 velocity;
   Scene *scene;
+
+  friend class Collision;
 };
 
 #endif
