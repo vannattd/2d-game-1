@@ -11,7 +11,7 @@ class Snake : public Sprite
 {
 public:
   Snake(std::string image);
-  Snake(std::string image, int x, int y, int speed);
+  Snake(std::string image, float x, float y, float speed);
   Snake(SDL_Surface *surface);
   void update(double delta);
   void setBody(b2Body *body);
@@ -19,8 +19,9 @@ public:
 private:
   Vector3 velocity;
   Scene *scene;
-  int direction;
+  float direction;
   b2Body *body;
+  b2Vec2 b;
 };
 
 #endif

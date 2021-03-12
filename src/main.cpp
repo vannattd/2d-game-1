@@ -22,16 +22,15 @@ int main(int argc, char **argv)
 
 	Collision c(b2Vec2(0.0, 0.0));
 
-	int num_enenmies = 10;
-	int offset = 50;
-	int prev_location = 10;
+	int num_enenmies = 6;
+	float offset = 9.0;
+	float prev_location = 1.0;
 
-	// Make a banana and add to scene. Should update and draw.
 	Frogger *f = new Frogger("./assets/frog.png");
 
 	for (int i = 0; i <= num_enenmies; i++)
 	{
-		Snake *s = new Snake("./assets/snake.png", 200, prev_location + offset, rand() % 20 + 1);
+		Snake *s = new Snake("./assets/snake.png", rand() % 80 + 1, prev_location + offset, rand() % 10 + 1);
 		prev_location = prev_location + offset;
 		one.addUpdateable(s);
 		one.addDrawable(s);

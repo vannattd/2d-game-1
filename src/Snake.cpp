@@ -10,10 +10,12 @@ Snake::Snake(std::string image) : Sprite(image)
   direction = -10;
 }
 
-Snake::Snake(std::string image, int x, int y, int speed) : Sprite(image)
+Snake::Snake(std::string image, float x, float y, float speed) : Sprite(image)
 {
-  position.setX(x);
-  position.setY(y);
+  //position.setX(x);
+  //position.setY(y);
+  b.x = x;
+  b.y = y;
   direction = -speed;
 }
 
@@ -26,22 +28,24 @@ void Snake::update(double delta)
 {
   // So we stop getting the compiler warning for now.
   position.setX(position.getX() + velocity.getX() * delta + direction);
+  b.x += direction;
   //position.setY(position.getY() + velocity.getY() * delta + 10);
   if (position.getX() > 1024 - rect->w)
   {
-    direction = -10;
+    direction = -1.0;
     surface = IMG_Load("./assets/snake.png");
     texture = SDL_CreateTextureFromSurface(Engine::getRenderer(), surface);
     //position.setX(position.getX() - 10);
   }
   if (position.getX() < 0)
   {
-    direction = 10;
+    direction = 1.0;
     surface = IMG_Load("./assets/snake-right.png");
     texture = SDL_CreateTextureFromSurface(Engine::getRenderer(), surface);
 
     //position.setX(position.getX() + 10);
   }
+  body->SetTransform(b, body->GetAngle());
 }
 
 // void Snake::update(double delta)

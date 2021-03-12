@@ -23,6 +23,7 @@ private:
   Vector3 velocity;
   Scene *scene;
   b2Body *body;
+  b2Vec2 b;
 };
 
 #endif
