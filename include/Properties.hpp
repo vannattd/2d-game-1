@@ -1,11 +1,11 @@
-#ifndef     __HPP_PROPERTIES__
-#define     __HPP_PROPERTIES__
+#ifndef __HPP_PROPERTIES__
+#define __HPP_PROPERTIES__
 
 #define FPS 30
 
-#define BGR 255
-#define BGG 255
-#define BGB 255
+#define BGR 41
+#define BGG 171
+#define BGB 135
 #define BGA 255
 
 #endif

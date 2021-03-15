@@ -46,9 +46,8 @@ build/release/main.o: src/main.cpp include/Engine.hpp \
   /usr/local/include/SDL2/SDL_version.h \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h include/Utility.hpp \
-  include/Scene.hpp include/Banana.hpp \
-  /usr/local/include/SDL2/SDL_image.h include/Frogger.hpp \
-  /usr/local/include/box2d/box2d.h \
+  include/Scene.hpp include/Frogger.hpp \
+  /usr/local/include/SDL2/SDL_image.h /usr/local/include/box2d/box2d.h \
   /usr/local/include/box2d/b2_settings.h \
   /usr/local/include/box2d/b2_types.h /usr/local/include/box2d/b2_api.h \
   /usr/local/include/box2d/b2_common.h \
@@ -83,7 +82,7 @@ build/release/main.o: src/main.cpp include/Engine.hpp \
   /usr/local/include/box2d/b2_revolute_joint.h \
   /usr/local/include/box2d/b2_weld_joint.h \
   /usr/local/include/box2d/b2_wheel_joint.h include/Sprite.hpp \
-  include/Snake.hpp include/Collision.hpp include/HUD.hpp \
+  include/Snake.hpp include/Collision.hpp include/Background.hpp \
   /usr/local/include/SDL2/SDL_ttf.h
 
 include/Engine.hpp:
@@ -190,11 +189,9 @@ include/Utility.hpp:
 
 include/Scene.hpp:
 
-include/Banana.hpp:
+include/Frogger.hpp:
 
 /usr/local/include/SDL2/SDL_image.h:
-
-include/Frogger.hpp:
 
 /usr/local/include/box2d/box2d.h:
 
@@ -276,6 +273,6 @@ include/Snake.hpp:
 
 include/Collision.hpp:
 
-include/HUD.hpp:
+include/Background.hpp:
 
 /usr/local/include/SDL2/SDL_ttf.h:

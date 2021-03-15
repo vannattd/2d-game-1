@@ -1,6 +1,5 @@
 //@authors Dylan Vannatter, Korey Stamper and Jessica Ricksgers
 //Start of a basic Sprite Class for CIS 380
-
 #include "Engine.hpp"
 #include "Sprite.hpp"
 
@@ -76,3 +75,7 @@ void Sprite::draw()
   SDL_RenderCopy(Engine::getRenderer(), texture, NULL, dst);
 }
 
+int Sprite::getTag()
+{
+  return tag;
+}

@@ -2,6 +2,7 @@
 #include "Properties.hpp"
 #include "Scene.hpp"
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 
 // For linking purposes, we need to declare this static member in the cpp file.

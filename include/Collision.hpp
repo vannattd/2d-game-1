@@ -23,6 +23,7 @@ public:
   ~Collision();
   void update(double delta);
   b2Body *addObject(Sprite *object);
+  void checkContact();
 
 private:
   b2World *world;

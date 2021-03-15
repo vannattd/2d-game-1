@@ -1,11 +1,13 @@
 #include "Collision.hpp"
 #include "Interfaces.hpp"
 #include "Sprite.hpp"
+#include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <box2d/box2d.h>
 
 const int METERSTOPIXELS = 30;
 
+//Setting up world
 Collision::Collision(b2Vec2 gravity)
 {
   SDL_Log("Creating world...");
@@ -18,6 +20,7 @@ Collision::~Collision()
   delete world;
 }
 
+//Updating for physics engine
 void Collision::update(double delta)
 {
   world->Step(1.0 / 60.0, 1.0, 1.0);
@@ -27,8 +30,22 @@ void Collision::update(double delta)
     (*it).first->position.setX(position.x * 10);
     (*it).first->position.setY(position.y * 10);
   }
+  checkContact();
 }
 
+//Checking collisons
+void Collision::checkContact()
+{
+  //Get all contact. We can do this since only contact occuring is between frog and snake
+  for (b2Contact *contact = world->GetContactList(); contact; contact = contact->GetNext())
+  {
+    SDL_Log("You were eaten by a snake!");
+    exit(1);
+    SDL_Quit();
+  }
+}
+
+//adding object to world
 b2Body *Collision::addObject(Sprite *object)
 {
   b2BodyDef bodyDef;

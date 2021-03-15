@@ -8,6 +8,7 @@
 #include <SDL2/SDL_image.h>
 #include "Interfaces.hpp"
 #include "Utility.hpp"
+#include "Scene.hpp"
 #include <string>
 
 class Sprite : public DUGameObject
@@ -19,10 +20,12 @@ public:
   void setScene(Scene *scene);
   ~Sprite();
   void draw();
+  int getTag();
 
 private:
   Vector3 velocity;
   Scene *scene;
+  int tag = 0;
 
   friend class Collision;
 };
